@@ -1,0 +1,63 @@
+
+global proc AEccg_fakefurTemplate ( string $nodeName ) 
+{ 
+	AEswatchDisplay $nodeName; 
+
+	editorTemplate -beginScrollLayout;
+
+	editorTemplate -beginLayout "Common Material Attributes" -collapse 0; 
+		editorTemplate -label "Skin Color" -addControl "skinColor";
+		editorTemplate -label "Skin Diffuse Map Mult" -addControl "skinDiffuseMapMult";
+		editorTemplate -label "Hair Color" -addControl "hairColor";
+		editorTemplate -label "Hair Diffuse Map Mult" -addControl "hairDiffuseMapMult";
+		editorTemplate -label "Incandescence" -addControl "incandescence";
+		editorTemplate -label "Normal Mapping" -addControl "normalMapping";
+	editorTemplate -endLayout; 
+	
+	editorTemplate -beginLayout "Hair Shading" -collapse 0; 
+		editorTemplate -label "Kajiya Specular Color 1" -ann "Specular 1 for Kajiya contribution" -addControl "Kajiya_specColor1";
+		editorTemplate -label "Kajiya Specular Exponent 1" -ann "Exponent of specular 1 for Kajiya contribution" -addControl "Kajiya_specExp1";
+		editorTemplate -label "Kajiya Specular Color 2" -ann "Specular 2 for Kajiya contribution" -addControl "Kajiya_specColor2";
+		editorTemplate -label "Kajiya Specular Exponent 2" -ann "Exponent of specular 2 for Kajiya contribution" -addControl "Kajiya_specExp2";
+		editorTemplate -label "Goldman Specular Color" -ann "Specular for Dan Goldman contribution" -addControl "Goldman_specColor";
+		editorTemplate -label "Goldman Specular Power" -ann "Power of specular 3 for Dan Goldman contribution" -addControl "Goldman_specPower";
+		editorTemplate -label "Hair Specular Map Mult" -ann "Hair specular scale map" -addControl "hairSpecularMapMult";
+		editorTemplate -label "Hair Direction" -ann "Rotation of hair tangent direction along normal" -addControl "hairDirection";
+		editorTemplate -label "Hair Specular Mode" -addControl "hairSpecularMode";
+		editorTemplate -label "Hair Diffuse Mode" -addControl "hairDiffuseMode";
+	editorTemplate -endLayout; 
+	
+	editorTemplate -beginLayout "Hair Parameters" -collapse 0; 
+		editorTemplate -label "Hair Density" -addControl "hairDensity";
+		editorTemplate -label "Hair Density Map Mult" -addControl "hairDensityMapMult";
+		editorTemplate -label "Backward Scattering" -ann "Hair backward scattering" -addControl "backwardScattering";
+		editorTemplate -label "Forward Scattering" -ann "Hair forward scattering" -addControl "forwardScattering";
+		editorTemplate -label "Hair Over Hair Shadow" -ann "Density of hair over hair shadow" -addControl "hairOverHairShadow";
+		editorTemplate -label "Shadow Attenuation" -ann "Hair over surface shadow attenuation" -addControl "shadowAttenuation";
+		editorTemplate -label "Start Shadow Cosine" -ann "Cosine of the starting shadow termination" -addControl "startShadowCos";
+		editorTemplate -label "End Shadow Cosine" -ann "Cosine of the ending shadow termination" -addControl "endShadowCos";
+		editorTemplate -label "Hair Length" -addControl "hairLength";
+		editorTemplate -label "Hair Base Radius" -ann "Hair radius at base" -addControl "hairBaseRadius";
+		editorTemplate -label "Hair Tip Radius" -ann "Hair radius at tip" -addControl "hairTipRadius";
+	editorTemplate -endLayout;
+	
+	editorTemplate -beginLayout "Skin Shading" -collapse 0; 
+		editorTemplate -label "Skin Specular Color" -addControl "skinSpecularColor";
+		editorTemplate -label "Eccentricity" -addControl "eccentricity";
+		editorTemplate -label "Specular Rolloff" -addControl "specularRolloff";
+		editorTemplate -label "Skin Specular Map Mult" -addControl "skinSpecularMapMult";
+		editorTemplate -label "Disable Skin Specular" -addControl "disableSkinSpecular";
+		editorTemplate -label "Direct Blinn Specular" -ann "Simply add blinn specular onto surface shading without hair over surface attenuation" -addControl "directBlinnSpecular";
+	editorTemplate -endLayout;
+	
+	editorTemplate -beginLayout "SSS Shading" -collapse 0; 
+		editorTemplate -label "SubSurface Scattering" -addControl "sss";
+		editorTemplate -label "SSS Map Mult" -addControl "sssMapMult";
+	editorTemplate -endLayout;
+
+	AEdependNodeTemplate $nodeName;
+	editorTemplate -addExtraControls;
+
+	editorTemplate -endScrollLayout; 
+} 
+

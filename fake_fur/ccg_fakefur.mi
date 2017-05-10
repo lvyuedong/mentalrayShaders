@@ -1,0 +1,51 @@
+declare shader
+	color "ccg_fakefur" (
+		color "skinColor",            #: default 0.23 0.17 0.13
+		color "skinDiffuseMapMult",		#: default 1 1 1
+		color "hairColor",         		#: default 0.5 0.5 0.5
+		color "hairDiffuseMapMult",		#: default 1 1 1
+		color "incandescence",				#: default 0 0 0
+		vector "normalMapping",			      
+		
+		color "Kajiya_specColor1",       #: default 0.95 0.85 0.85
+		scalar "Kajiya_specExp1",   #: default 30 min 1 max 1500
+		color "Kajiya_specColor2",       #: default 0.60 0.50 0.30
+		scalar "Kajiya_specExp2",   #: default 30 min 1 max 1500
+		color	"Goldman_specColor",				#: default 0.95 0.85 0.85
+	  scalar "Goldman_specPower",				#: default 20 min 0 max 200
+	  color "hairSpecularMapMult",		#: default 1 1 1
+	  scalar "hairDirection",				#: default 0 min 0 max 360
+	  integer "hairSpecularMode",				#: enum "Kajiya:Goldman:Kajiya + Goldman" default 2
+	  integer "hairDiffuseMode",			#: enum "NdotL:TcrossL" default 0
+	  
+		scalar "hairDensity",         #: default 100 softmin 1 softmax 1000
+		scalar "hairDensityMapMult",	#: default 1 softmin 0 softmax 1
+		scalar "backwardScattering",   #: default 0.70 min 0 max 1 	
+    scalar "forwardScattering",   #: default 0.30 min 0 max 1 	
+		scalar "hairOverHairShadow",  #: default 1 min 0 max 1  	
+		scalar "shadowAttenuation",   #: default 0.50 min 0 max 1  	
+		scalar "startShadowCos",      #: default 0.3 min 0 max 1  	
+		scalar "endShadowCos",        #: default 1.0 min 0 max 1  	
+		scalar "hairLength",          #: default 0.15 min 0 max 1   	
+		scalar "hairBaseRadius",      #: default 0.01 min 0 max 1   	
+		scalar "hairTipRadius",       #: default 0.00 min 0 max 1
+		
+		color		"skinSpecularColor",	#: default 0.23 0.17 0.13
+    scalar	"eccentricity",			#: default 0.35 min 0	max 0.999999
+    scalar	"specularRolloff",		#: default 0.7 min 0 max 1
+	color	"skinSpecularMapMult",	#: default 1 1 1
+    boolean	"disableSkinSpecular",   #: default off
+    boolean "directBlinnSpecular",	#: default off
+	
+	color	"sss",			#: default 0 0 0
+	color	"sssMapMult", 	#: default 1 1 1
+
+		boolean	"surface",   					#: default on
+							      					      					      
+		integer	"mode",       	      #: default 4					      
+		array light "lights"
+		  )
+	version 1
+	apply material
+	#: nodeid 8173198
+end declare

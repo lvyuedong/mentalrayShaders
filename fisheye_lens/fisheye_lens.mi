@@ -1,0 +1,11 @@
+declare shader
+  color "fisheye_lens" (
+  	integer	"method",			#: enum "Linear:Cosine" default 0
+  	integer "lens_type", 	#: enum "Circular:Full-Frame" default 0
+		scalar "angle_of_view", #:min 0 max 180 default 180
+		scalar "distort" #:min 0 softmax 5 default 1
+  )
+	version 1
+	apply lens
+	#: nodeid 8173697
+end declare

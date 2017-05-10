@@ -1,0 +1,20 @@
+declare shader
+	vector "cube_panorama_stereo_lens" (
+		integer "whichEye",				#: enum "Left:Right" default 0
+		scalar "interocular",			#: min 0 default 0
+		scalar "zeroParallax",			#: min 0.00001 default 235
+		scalar "cube_width",		#: min 0.001 softmax 1 default 1
+		scalar "cube_height",		#: min 0.001 softmax 1 default 1
+		scalar "cube_depth",		#: min 0.001 softmax 1 default 1
+		boolean "lens_correction",	#: default off
+		boolean	"front_en",			#: default on
+		boolean	"left_en",			#: default on
+		boolean	"right_en",			#: default on
+		boolean	"top_en",			#: default on
+		boolean	"bottom_en",		#: default on
+		boolean	"back_en"			#: default on
+	)
+	version 1
+	apply lens
+	#: nodeid 8173690
+end declare

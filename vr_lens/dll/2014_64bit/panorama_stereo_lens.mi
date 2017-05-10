@@ -1,0 +1,19 @@
+declare shader
+	color "panorama_stereo_lens" (
+		integer "whichEye",				#: enum "Left:Right" default 0
+		scalar "interocular",			#: min 0 default 0
+		scalar "zeroParallax",			#: min 0.00001 default 235
+		scalar "horizontal_angle",		#: min 0.001 max 360 default 360
+		scalar "vertical_angle",		#: min 0.001 max 180 default 180
+		boolean "useAbsoluteAngle",		#: default false
+		scalar "horiz_angle_start",		#: min 0 max 360 default 0
+		scalar "horiz_angle_end",		#: min 0 max 360 default 360
+		scalar "vert_angle_start",		#: min 0 max 180 default 0
+		scalar "vert_angle_end"			#: min 0 max 180 default 180
+	)
+	version 1
+	apply lens
+	scanline off
+	trace on
+	#: nodeid 8173698
+end declare
